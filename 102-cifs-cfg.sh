@@ -3,7 +3,7 @@
 read -p "?? Add Windows share? [y/N] " respDoSharing
 
 if [ "$respDoSharing" = "y" ]; then
-	apt install -y cifs-utils
+	apt-get -qq install cifs-utils
 
 	read -p "?? Enter destination path: " respDest
 

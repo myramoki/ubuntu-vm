@@ -1,3 +1,5 @@
+# Setup tomcat with basic stuff
+
 printf "\n\n#### Setting Up Tomcat\n\n\n"
 
 DEFAULT_TOMCAT_VERSION=9.0.96
@@ -5,10 +7,10 @@ DEFAULT_TOMCAT_VERSION=9.0.96
 read -p "?? Version of Tomcat to install [$DEFAULT_TOMCAT_VERSION] " respTomcatVersion
 
 if [ -z "$respTomcatVersion" ]; then
-	respTomcatVersion=$DEFAULT_TOMCAT_VERSION
+    respTomcatVersion=$DEFAULT_TOMCAT_VERSION
 fi
 
-apt install -y authbind libtcnative-1
+apt-get -qq install authbind libtcnative-1
 
 useradd -m -d /opt/tomcat -U -s /bin/false tomcat
 usermod -a -G tomcat bn

@@ -2,22 +2,21 @@
 
 printf "\n\n#### Setting Up Internet\n\n\n"
 
-read -p "?? Setup networking? [y/N] " respDoNetwork
+currentHostname=$(hostname)
 
-if [ "$respDoNetwork" = "y" ]; then
-    read -p "?? Enter Hostname: " respHostname
+read -p "?? Change hostname [$currentHostname] " respHostname
 
-    if [ -n "$respHostname" ]; then
-        printf "%s\n" $respHostname > /etc/hostname
-    fi
+if [ -n "$respHostname" ]; then
+    printf "%s\n" $respHostname > /etc/hostname
+fi
 
-    read -p "?? Enter IP CIDR address: " respIpAddress
+read -p "?? Enter IP CIDR address: " respIpAddress
 
-    if [ -n "$respIpAddress" ]; then
-        read -p "?? Enter Gateway address: " respGatewayAddress
+if [ -n "$respIpAddress" ]; then
+    read -p "?? Enter Gateway address: " respGatewayAddress
 
 
-        printf "# This file is generated from information provided by the datasource.  Changes
+    printf "# This file is generated from information provided by the datasource.  Changes
 # to it will not persist across an instance reboot.  To disable cloud-init's
 # network configuration capabilities, write a file
 # /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg with the following:
@@ -37,8 +36,7 @@ network:
     version: 2
 " $respIpAddress $respGatewayAddress $respGatewayAddress > /etc/netplan/50-cloud-init.yaml
 
-        netplan apply
+    echo "netplan apply" >> /tmp/dofinal
 
-        touch /tmp/doreboot
-    fi
+    touch /tmp/doreboot
 fi

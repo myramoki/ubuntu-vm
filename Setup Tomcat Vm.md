@@ -33,18 +33,18 @@
 
       ```yaml
       network:
-          ethernets:
-              eth0:
-                  addresses:
-                  - 192.168.51.1/23
-                  nameservers:
-                      addresses:
-                      - 192.168.50.1
-                      search: []
-                  routes:
-                  -   to: default
-                      via: 192.168.50.1
-          version: 2
+        ethernets:
+          eth0:
+            addresses:
+              - 192.168.51.1/23
+            nameservers:
+              addresses:
+                - 192.168.50.1
+              search: []
+            routes:
+              - to: default
+                via: 192.168.50.1
+        version: 2
       ```
 
     - User setup
@@ -60,17 +60,16 @@
 
     - Test ssh connection to `192.168.51.1` using SSH client
 
-
 - Configure mDNS
 
   Info at https://gist.github.com/jimmydo/e4943950427234408a1aaa2d7beda8b6
 
   ```bash
   sudo sed -i 's/#MulticastDNS=no/MulticastDNS=yes/' /etc/systemd/resolved.conf
-  
+
   sudo mkdir /etc/systemd/network/$(ls /run/systemd/network).d
   printf "[Network]\nMulticastDNS=yes\n" | sudo tee /etc/systemd/network/$(ls /run/systemd/network).d/override.conf
-  
+
   sudo resolvectl mdns eth0 yes
   ```
 
@@ -97,7 +96,6 @@ sudo ufw allow https
 sudo ufw enable
 ```
 
-
 ## Install Java
 
 ```bash
@@ -111,7 +109,7 @@ sudo sed -i $'$a\\\nJAVA_HOME='$(dirname $(dirname $(dirname $(realpath $(which 
 - Adjust environment file so there are some starting points for path and env variables
 
 ```bash
-curl -L -o /tmp/gradle.zip https://services.gradle.org/distributions/gradle-8.10.2-bin.zip
+curl -sL -o /tmp/gradle.zip https://services.gradle.org/distributions/gradle-8.10.2-bin.zip
 sudo unzip /tmp/gradle.zip -d /opt
 cd /opt
 sudo ln -s gradle-8.10.2 gradle
@@ -134,7 +132,7 @@ sudo chown tomcat /etc/authbind/byport/80 /etc/authbind/byport/443
 sudo useradd -m -d /opt/tomcat -U -s /bin/false tomcat
 sudo usermod -a -G tomcat bn
 
-curl https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.96/bin/apache-tomcat-9.0.96.tar.gz \
+curl -sL https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.96/bin/apache-tomcat-9.0.96.tar.gz \
 	| sudo tar xzvf - -C /opt/tomcat \
 		--strip-components=1 \
 		--exclude='*/webapps/examples' --exclude='*/webapps/docs'
@@ -199,4 +197,3 @@ sudo sed -i 's/192.168.51.1/'$updateip'/' /etc/netplan/50-cloud-init.yaml
 sudo sed -i 's/starter/'$updatehost'/' /etc/hostname
 sudo reboot
 ```
-

@@ -1,4 +1,4 @@
-curl -o /opt/tomcat/conf/localhost.jks -O https://raw.githubusercontent.com/myramoki/ubuntu-vm/main/localhost.jks
+curl -sL -o /opt/tomcat/conf/localhost.jks -O https://raw.githubusercontent.com/myramoki/ubuntu-vm/main/localhost.jks
 chown tomcat:tomcat /opt/tomcat/conf/localhost.jks
 
 sed -i 's/<Context>/<Context antiResourceLocking="true">/' /opt/tomcat/conf/context.xml

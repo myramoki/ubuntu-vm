@@ -1,4 +1,4 @@
-sh -c "$(curl \
+sh -c "$(curl -sL \
 	https://raw.githubusercontent.com/myramoki/ubuntu-vm/main/001-software-cfg.sh \
 	https://raw.githubusercontent.com/myramoki/ubuntu-vm/main/002-mdns-cfg.sh \
 	https://raw.githubusercontent.com/myramoki/ubuntu-vm/main/003-ssh-cfg.sh \

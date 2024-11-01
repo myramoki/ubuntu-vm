@@ -8,7 +8,7 @@ if [ -z "$respGradleVersion" ]; then
 	respGradleVersion=$DEFAULT_GRADLE_VERSION
 fi
 
-curl -L -o /tmp/gradle.zip https://services.gradle.org/distributions/gradle-$respGradleVersion-bin.zip
+curl -sL -o /tmp/gradle.zip https://services.gradle.org/distributions/gradle-$respGradleVersion-bin.zip
 unzip /tmp/gradle.zip -d /opt
 
 cd /opt

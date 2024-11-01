@@ -9,7 +9,7 @@ echo "
 ##
 "
 
-read "?? Select setup type: [sbtz] " respType
+read -p "?? Select setup type: [sbtz] " respType
 
 if [ -n "$respType" ]; then
 	case $respType in

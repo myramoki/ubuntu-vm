@@ -1,30 +1,26 @@
 # https://phoenixnap.com/kb/linux-mount-cifs
 
-read -p "?? Add Windows share? [y/N] " respDoSharing
+read -p "?? Add Windows share path [return for nothing] " respDest
 
-if [ "$respDoSharing" = "y" ]; then
-	apt-get -qq install cifs-utils
+if [ -n "$respDest" ]; then
+    read -p "?? Enter username: " respUsername
+    read -p "?? Enter password: " respPassword
 
-	read -p "?? Enter destination path: " respDest
+    apt-get -qq install cifs-utils
 
-	if [ -n "$respDest" ]; then
-		read -p "?? Enter username: " respUsername
-		read -p "?? Enter password: " respPassword
+    if $(mount | grep -q /mnt/shared); then
+        umount -f /mnt/shared
+    else
+        mkdir -p /mnt/shared
+    fi
 
-		if $(mount | grep -q /mnt/winshare); then
-			umount -f /mnt/winshare
-		else
-			mkdir -p /mnt/winshare
-		fi
+    mkdir /etc/cifs-creds
+    chmod 700 /etc/cifs-creds
 
-		mkdir /etc/cifs-creds
-		chmod 700 /etc/cifs-creds
+    printf "username=%s\npassword=%s\n" $respUsername $respPassword >> /etc/cifs-creds/shared
 
-		printf "username=%s\npassword=%s\n" $respUsername $respPassword >> /etc/cifs-creds/winshare
+    sed -i.bak '/\/mnt\/shared/d' /etc/fstab
+    printf "%s /mnt/shared cifs credentials=/etc/cifs-creds/shared,uid=%s,gid=%s 0 0\n" $respDest $(id -u bn) $(id -g bn) >> /etc/fstab
 
-		sed -i.bak '/\/mnt\/winshare/d' /etc/fstab
-		printf "%s /mnt/winshare cifs credentials=/etc/cifs-creds/winshare,uid=%s,gid=%s 0 0\n" $respDest $(id -u bn) $(id -g bn) >> /etc/fstab
-
-		touch /tmp/doreboot
-	fi
+    touch /tmp/doreboot
 fi

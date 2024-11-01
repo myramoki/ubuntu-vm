@@ -2,7 +2,7 @@ printf "\n\n#### Setting Up Tomcat\n\n\n"
 
 DEFAULT_TOMCAT_VERSION=9.0.96
 
-read -p "?? Version of Tomcat to install? [$DEFAULT_TOMCAT_VERSION] " respTomcatVersion
+read -p "?? Version of Tomcat to install [$DEFAULT_TOMCAT_VERSION] " respTomcatVersion
 
 if [ -z "$respTomcatVersion" ]; then
 	respTomcatVersion=$DEFAULT_TOMCAT_VERSION

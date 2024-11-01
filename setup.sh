@@ -13,9 +13,24 @@ read -p "?? Select setup type: [sbtz] " respType
 
 if [ -n "$respType" ]; then
 	case $respType in
-	s) sh -c "$(curl https://raw.githubusercontent.com/myramoki/ubuntu/main/setup-basic.sh)" ;;
-	b) sh -c "$(curl https://raw.githubusercontent.com/myramoki/ubuntu/main/setup-builder.sh)" ;;
-	t) sh -c "$(curl https://raw.githubusercontent.com/myramoki/ubuntu/main/setup-tomcat.sh)" ;;
-	z) sh -c "$(curl https://raw.githubusercontent.com/myramoki/ubuntu/main/setup-biznuvo.sh)" ;;
+	s)
+		echo "# Processing setup-basic"
+		sh -c "$(curl -sL https://raw.githubusercontent.com/myramoki/ubuntu-vm/main/setup-basic.sh)"
+		;;
+
+	b)
+		echo "# Processing setup-builder"
+		sh -c "$(curl -sL https://raw.githubusercontent.com/myramoki/ubuntu-vm/main/setup-builder.sh)"
+		;;
+
+	t)
+		echo "# Processing setup-tomcat"
+		sh -c "$(curl -sL https://raw.githubusercontent.com/myramoki/ubuntu-vm/main/setup-tomcat.sh)"
+		;;
+	
+	z)
+		echo "# Processing setup-biznuvo"
+		sh -c "$(curl -sL https://raw.githubusercontent.com/myramoki/ubuntu-vm/main/setup-biznuvo.sh)"
+		;;
 	esac
 fi

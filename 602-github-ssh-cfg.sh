@@ -1,7 +1,6 @@
 printf "\n\n#### Updating BN user information\n\n\n"
 
-echo "
-[core]
+echo "[core]
         autocrlf = false
 " > ~bn/.gitconfig
 chown bn: ~bn/.gitconfig

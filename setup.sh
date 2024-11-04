@@ -15,22 +15,60 @@ if [ -n "$respType" ]; then
 	case $respType in
 	s)
 		echo "# Processing setup-basic"
-		sh -c "$(curl -sL https://raw.githubusercontent.com/myramoki/ubuntu-vm/main/setup-basic.sh)"
+		sh -c "$(curl \
+			https://raw.githubusercontent.com/myramoki/ubuntu-vm/main/001-software-cfg.sh \
+			https://raw.githubusercontent.com/myramoki/ubuntu-vm/main/002-mdns-cfg.sh \
+			https://raw.githubusercontent.com/myramoki/ubuntu-vm/main/003-ssh-cfg.sh \
+			https://raw.githubusercontent.com/myramoki/ubuntu-vm/main/004-ufw-cfg.sh \
+			https://raw.githubusercontent.com/myramoki/ubuntu-vm/main/101-network-cfg.sh \
+			https://raw.githubusercontent.com/myramoki/ubuntu-vm/main/102-cifs-cfg.sh \
+		)"
 		;;
 
 	b)
 		echo "# Processing setup-builder"
-		sh -c "$(curl -sL https://raw.githubusercontent.com/myramoki/ubuntu-vm/main/setup-builder.sh)"
+		sh -c "$(curl \
+			https://raw.githubusercontent.com/myramoki/ubuntu-vm/main/001-software-cfg.sh \
+			https://raw.githubusercontent.com/myramoki/ubuntu-vm/main/002-mdns-cfg.sh \
+			https://raw.githubusercontent.com/myramoki/ubuntu-vm/main/003-ssh-cfg.sh \
+			https://raw.githubusercontent.com/myramoki/ubuntu-vm/main/004-ufw-cfg.sh \
+			https://raw.githubusercontent.com/myramoki/ubuntu-vm/main/101-network-cfg.sh \
+			https://raw.githubusercontent.com/myramoki/ubuntu-vm/main/102-cifs-cfg.sh \
+			https://raw.githubusercontent.com/myramoki/ubuntu-vm/main/201-java-cfg.sh \
+			https://raw.githubusercontent.com/myramoki/ubuntu-vm/main/301-gradle-cfg.sh \
+			https://raw.githubusercontent.com/myramoki/ubuntu-vm/main/602-github-ssh-cfg.sh \
+		)"
 		;;
 
 	t)
 		echo "# Processing setup-tomcat"
-		sh -c "$(curl -sL https://raw.githubusercontent.com/myramoki/ubuntu-vm/main/setup-tomcat.sh)"
+		sh -c "$(curl \
+			https://raw.githubusercontent.com/myramoki/ubuntu-vm/main/001-software-cfg.sh \
+			https://raw.githubusercontent.com/myramoki/ubuntu-vm/main/002-mdns-cfg.sh \
+			https://raw.githubusercontent.com/myramoki/ubuntu-vm/main/003-ssh-cfg.sh \
+			https://raw.githubusercontent.com/myramoki/ubuntu-vm/main/004-ufw-cfg.sh \
+			https://raw.githubusercontent.com/myramoki/ubuntu-vm/main/101-network-cfg.sh \
+			https://raw.githubusercontent.com/myramoki/ubuntu-vm/main/102-cifs-cfg.sh \
+			https://raw.githubusercontent.com/myramoki/ubuntu-vm/main/201-java-cfg.sh \
+			https://raw.githubusercontent.com/myramoki/ubuntu-vm/main/301-gradle-cfg.sh \
+			https://raw.githubusercontent.com/myramoki/ubuntu-vm/main/302-tomcat-cfg.sh \
+		)"
 		;;
-	
+
 	z)
 		echo "# Processing setup-biznuvo"
-		sh -c "$(curl -sL https://raw.githubusercontent.com/myramoki/ubuntu-vm/main/setup-biznuvo.sh)"
+		sh -c "$(curl \
+			https://raw.githubusercontent.com/myramoki/ubuntu-vm/main/001-software-cfg.sh \
+			https://raw.githubusercontent.com/myramoki/ubuntu-vm/main/002-mdns-cfg.sh \
+			https://raw.githubusercontent.com/myramoki/ubuntu-vm/main/003-ssh-cfg.sh \
+			https://raw.githubusercontent.com/myramoki/ubuntu-vm/main/004-ufw-cfg.sh \
+			https://raw.githubusercontent.com/myramoki/ubuntu-vm/main/101-network-cfg.sh \
+			https://raw.githubusercontent.com/myramoki/ubuntu-vm/main/102-cifs-cfg.sh \
+			https://raw.githubusercontent.com/myramoki/ubuntu-vm/main/201-java-cfg.sh \
+			https://raw.githubusercontent.com/myramoki/ubuntu-vm/main/301-gradle-cfg.sh \
+			https://raw.githubusercontent.com/myramoki/ubuntu-vm/main/302-tomcat-cfg.sh \
+			https://raw.githubusercontent.com/myramoki/ubuntu-vm/main/601-ssl-tomcat-cfg.sh \
+		)"
 		;;
 	esac
 fi

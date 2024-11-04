@@ -2,7 +2,7 @@ printf "\n\n#### Setting Up Gradle\n\n\n"
 
 DEFAULT_GRADLE_VERSION=8.10.2
 
-read -p "?? Version of Tomcat to install [$DEFAULT_GRADLE_VERSION] " respGradleVersion
+read -p "?? Version of Gradle to install [$DEFAULT_GRADLE_VERSION] " respGradleVersion
 
 if [ -z "$respGradleVersion" ]; then
 	respGradleVersion=$DEFAULT_GRADLE_VERSION

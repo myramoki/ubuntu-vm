@@ -5,10 +5,7 @@ echo "[core]
 " > ~bn/.gitconfig
 chown bn: ~bn/.gitconfig
 
-curl -sL -o /tmp/biznuvo-repos-sshkeys.txz.gpg https://raw.githubusercontent.com/myramoki/ubuntu-vm/main/biznuvo-repos-sshkeys.txz.gpg
-gpg -d /tmp/biznuvo-repos-sshkeys.txz.gpg
-
-tar xzvf /tmp/biznuvo-repos-sshkeys.txz -C ~bn/.ssh
+curl -sL https://raw.githubusercontent.com/myramoki/ubuntu-vm/main/biznuvo-repos-sshkeys.txz.gpg | gpg -d | tar -J -tvf - -C ~/.ssh/
 
 echo "Host server-v2
         Hostname github.com

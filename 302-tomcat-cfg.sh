@@ -1,6 +1,6 @@
 # Setup tomcat with basic stuff
 
-printf "\n\n#### Setting Up Tomcat\n\n\n"
+printf "\n\n#### BEGIN Tomcat Config\n\n\n"
 
 DEFAULT_TOMCAT_VERSION=9.0.96
 
@@ -10,14 +10,22 @@ if [ -z "$respTomcatVersion" ]; then
     respTomcatVersion=$DEFAULT_TOMCAT_VERSION
 fi
 
+printf "#- get tomcat port and ssl libs\n"
+
 apt-get -qq install authbind libtcnative-1
+
+printf "#- add tomcat users\n"
 
 useradd -m -d /opt/tomcat -U -s /bin/false tomcat
 usermod -a -G tomcat bn
 
+printf "#- add authbind\n"
+
 touch /etc/authbind/byport/80 /etc/authbind/byport/443
 chmod 500 /etc/authbind/byport/80 /etc/authbind/byport/443
 chown tomcat /etc/authbind/byport/80 /etc/authbind/byport/443
+
+printf "#- fetch tomcat\n"
 
 curl -sL https://dlcdn.apache.org/tomcat/tomcat-9/v$respTomcatVersion/bin/apache-tomcat-$respTomcatVersion.tar.gz \
 	| tar xzvf - -C /opt/tomcat \
@@ -27,6 +35,8 @@ curl -sL https://dlcdn.apache.org/tomcat/tomcat-9/v$respTomcatVersion/bin/apache
 chown -R tomcat:tomcat /opt/tomcat/
 chmod -R u+x /opt/tomcat/bin
 chmod -R go+rX /opt/tomcat
+
+printf "#- setup systemctl for tomcat\n"
 
 printf '[Unit]
 Description=Apache Tomcat Web Application Container
@@ -56,6 +66,8 @@ Restart=always
 WantedBy=multi-user.target
 ' > /etc/systemd/system/tomcat.service
 
+printf "#- configure tomcat\n"
+
 sed -i \
 	-e '/<\/tomcat-users>/i \  <user username="tomcat" password="tomcat" roles="manager-gui" />' \
 	-e '/<\/tomcat-users>/i \  <user username="server" password="5Star*" roles="manager-script" />' \
@@ -69,3 +81,5 @@ sed -i \
 systemctl daemon-reload
 systemctl enable tomcat
 systemctl start tomcat
+
+printf "\n\n#### FINISHED Tomcat Config\n\n\n"

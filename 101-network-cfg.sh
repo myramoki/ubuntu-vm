@@ -1,6 +1,6 @@
 # ref https://askubuntu.com/questions/1064921/scripting-netplan-for-static-ip-address
 
-printf "\n\n#### Setting Up Internet\n\n\n"
+printf "\n\n#### BEGIN Network Config\n\n\n"
 
 currentHostname=$(hostname)
 
@@ -14,7 +14,6 @@ read -p "?? Enter IP CIDR address: " respIpAddress
 
 if [ -n "$respIpAddress" ]; then
     read -p "?? Enter Gateway address: " respGatewayAddress
-
 
     printf "# This file is generated from information provided by the datasource.  Changes
 # to it will not persist across an instance reboot.  To disable cloud-init's
@@ -40,3 +39,5 @@ network:
 
     touch /tmp/doreboot
 fi
+
+printf "\n\n#### FINISHED Network Config\n\n\n"

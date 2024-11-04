@@ -1,5 +1,11 @@
+printf "\n\n#### BEGIN Tomcat SSL Config\n\n\n"
+
+printf "#- fetch JKS\n"
+
 curl -sL -o /opt/tomcat/conf/localhost.jks https://raw.githubusercontent.com/myramoki/ubuntu-vm/main/localhost.jks
 chown tomcat:tomcat /opt/tomcat/conf/localhost.jks
+
+printf "#- configure tomcat\n"
 
 sed -i 's/<Context>/<Context antiResourceLocking="true">/' /opt/tomcat/conf/context.xml
 
@@ -35,4 +41,9 @@ NF != 0 {blank=0}
 
 systemctl restart tomcat
 
-ufw allow http https
+printf "#- setup firewall\n"
+
+ufw allow http
+ufw allow https
+
+printf "\n\n#### FINISHED Tomcat SSL Config\n\n\n"

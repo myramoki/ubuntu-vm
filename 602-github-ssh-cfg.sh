@@ -12,7 +12,7 @@ echo "
 Host github.com-server-v2
     Hostname ssh.github.com
     Port 443
-    IdentityFile=~/.ssh/biznuvo-server-v2-id_ed255519
+    IdentityFile=~/.ssh/biznuvo-server-v2-id_ed25519
 " > ~bn/.ssh/config
 
 chown bn: ~bn/.ssh/*

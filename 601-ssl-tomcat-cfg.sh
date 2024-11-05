@@ -39,6 +39,11 @@ NF != 0 {blank=0}
 }
 ' /opt/tomcat/conf/server.xml
 
+gawk -i inplace -v inplace::suffix=.bak '/Environment/ && !x {print "Environment=\"GRADLE_HOME=/opt/gradle\""; x=1} 1' /etc/systemd/system/tomcat.service
+
+printf "#- restart tomcat\n"
+
+systemctl daemon-reload
 systemctl restart tomcat
 
 printf "#- setup firewall\n"

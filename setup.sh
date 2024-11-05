@@ -1,11 +1,11 @@
 GITDIR="https://raw.githubusercontent.com/myramoki/ubuntu-vm/main"
 GITBASIC="
-	$GIDDIR/001-software-cfg.sh \
-	$GIDDIR/002-mdns-cfg.sh \
-	$GIDDIR/003-ssh-cfg.sh \
-	$GIDDIR/004-ufw-cfg.sh \
-	$GIDDIR/101-network-cfg.sh \
-	$GIDDIR/102-cifs-cfg.sh \
+	$GITDIR/001-software-cfg.sh \
+	$GITDIR/002-mdns-cfg.sh \
+	$GITDIR/003-ssh-cfg.sh \
+	$GITDIR/004-ufw-cfg.sh \
+	$GITDIR/101-network-cfg.sh \
+	$GITDIR/102-cifs-cfg.sh \
 "
 
 echo "
@@ -26,28 +26,28 @@ if [ -n "$respType" ]; then
 	b)
 		echo "# Processing setup-builder"
 		sh -c "$(curl $GITBASIC \
-			$GIDDIR/201-java-cfg.sh \
-			$GIDDIR/301-gradle-cfg.sh \
-			$GIDDIR/602-github-ssh-cfg.sh \
+			$GITDIR/201-java-cfg.sh \
+			$GITDIR/301-gradle-cfg.sh \
+			$GITDIR/602-github-ssh-cfg.sh \
 		)"
 		;;
 
 	t)
 		echo "# Processing setup-tomcat"
 		sh -c "$(curl $GITBASIC \
-			$GIDDIR/201-java-cfg.sh \
-			$GIDDIR/301-gradle-cfg.sh \
-			$GIDDIR/302-tomcat-cfg.sh \
+			$GITDIR/201-java-cfg.sh \
+			$GITDIR/301-gradle-cfg.sh \
+			$GITDIR/302-tomcat-cfg.sh \
 		)"
 		;;
 
 	z)
 		echo "# Processing setup-biznuvo"
 		sh -c "$(curl $GITBASIC \
-			$GIDDIR/201-java-cfg.sh \
-			$GIDDIR/301-gradle-cfg.sh \
-			$GIDDIR/302-tomcat-cfg.sh \
-			$GIDDIR/601-ssl-tomcat-cfg.sh \
+			$GITDIR/201-java-cfg.sh \
+			$GITDIR/301-gradle-cfg.sh \
+			$GITDIR/302-tomcat-cfg.sh \
+			$GITDIR/601-ssl-tomcat-cfg.sh \
 		)"
 		;;
 

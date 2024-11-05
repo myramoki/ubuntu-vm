@@ -1,6 +1,6 @@
 # https://phoenixnap.com/kb/linux-mount-cifs
 
-printf "\n\n#### BEGIN CIFS Config\n\n\n"
+printf "\n#### BEGIN CIFS Config\n\n\n"
 
 read -p "?? Add Windows share path [return for nothing] " respDest
 
@@ -31,4 +31,4 @@ if [ -n "$respDest" ]; then
     touch /tmp/doreboot
 fi
 
-printf "\n\n#### FINISHED CIFS Config\n\n\n"
+printf "\n#### FINISHED CIFS Config\n\n"

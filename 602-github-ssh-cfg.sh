@@ -1,4 +1,4 @@
-printf "\n\n#### BEGIN Github SSH Keys config\n\n\n"
+printf "\n#### BEGIN Github SSH Keys config\n\n\n"
 
 echo "[core]
     autocrlf = false
@@ -21,4 +21,4 @@ Host github.com-server-v2
 
 chown bn: ~bn/.ssh/*
 
-printf "\n\n#### FINISHED Github SSH Keys config\n\n\n"
+printf "\n#### FINISHED Github SSH Keys config\n\n"

@@ -1,4 +1,4 @@
-printf "\n\n#### BEGIN Tomcat SSL Config\n\n\n"
+printf "\n#### BEGIN Tomcat SSL Config\n\n\n"
 
 printf "#- fetch JKS\n"
 
@@ -46,4 +46,4 @@ printf "#- setup firewall\n"
 ufw allow http
 ufw allow https
 
-printf "\n\n#### FINISHED Tomcat SSL Config\n\n\n"
+printf "\n#### FINISHED Tomcat SSL Config\n\n"

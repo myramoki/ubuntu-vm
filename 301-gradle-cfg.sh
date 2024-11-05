@@ -1,4 +1,4 @@
-printf "\n\n#### BEGIN Gradle Config\n\n\n"
+printf "\n#### BEGIN Gradle Config\n\n\n"
 
 DEFAULT_GRADLE_VERSION=8.10.2
 
@@ -19,7 +19,9 @@ ln -s gradle-$respGradleVersion gradle
 
 printf "#- setup environment\n"
 
-sed -i -e $'$a\\\nGRADLE_HOME=/opt/gradle' -e 's#/snap/bin#/snap/bin:/opt/gradle/bin#' /etc/environment
+sed -i 's#/snap/bin#/snap/bin:/opt/gradle/bin#' /etc/environment
+echo 'GRADLE_HOME=/opt/gradle' >> /etc/environment
+
 sed -i 's#/snap/bin#/snap/bin:/opt/gradle/bin#' /etc/sudoers
 
-printf "\n\n#### FINISHED Gradle Config\n\n\n"
+printf "\n#### FINISHED Gradle Config\n\n"

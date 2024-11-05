@@ -1,6 +1,6 @@
 # Setup tomcat with basic stuff
 
-printf "\n\n#### BEGIN Tomcat Config\n\n\n"
+printf "\n#### BEGIN Tomcat Config\n\n\n"
 
 DEFAULT_TOMCAT_VERSION=9.0.96
 
@@ -82,4 +82,4 @@ systemctl daemon-reload
 systemctl enable tomcat
 systemctl start tomcat
 
-printf "\n\n#### FINISHED Tomcat Config\n\n\n"
+printf "\n#### FINISHED Tomcat Config\n\n"

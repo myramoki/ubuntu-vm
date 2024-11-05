@@ -1,6 +1,6 @@
 # ref https://askubuntu.com/questions/1064921/scripting-netplan-for-static-ip-address
 
-printf "\n\n#### BEGIN Network Config\n\n\n"
+printf "\n#### BEGIN Network Config\n\n\n"
 
 currentHostname=$(hostname)
 
@@ -40,4 +40,4 @@ network:
     touch /tmp/doreboot
 fi
 
-printf "\n\n#### FINISHED Network Config\n\n\n"
+printf "\n#### FINISHED Network Config\n\n"

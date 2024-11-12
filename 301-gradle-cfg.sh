@@ -1,6 +1,6 @@
 printf "\n#### BEGIN Gradle Config\n\n"
 
-DEFAULT_GRADLE_VERSION=8.10.2
+DEFAULT_GRADLE_VERSION=8.11
 
 read -p "?? Version of Gradle to install [$DEFAULT_GRADLE_VERSION] " respGradleVersion
 

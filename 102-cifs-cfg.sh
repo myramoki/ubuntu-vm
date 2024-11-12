@@ -8,7 +8,7 @@ if [ -n "$respDest" ]; then
     read -p "?? Enter username: " respUsername
     read -p "?? Enter password: " respPassword
 
-    apt-get -qq install cifs-utils
+    apt-get -y -qq install cifs-utils
 
     if $(mount | grep -q /mnt/shared); then
         umount -f /mnt/shared

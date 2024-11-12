@@ -12,7 +12,7 @@ fi
 
 printf "#- get tomcat port and ssl libs\n"
 
-apt-get -qq install authbind libtcnative-1
+apt-get -y -qq install authbind libtcnative-1
 
 printf "#- add tomcat users\n"
 

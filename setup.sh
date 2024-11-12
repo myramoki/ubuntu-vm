@@ -4,8 +4,10 @@ GITBASIC="
 	$GITDIR/002-mdns-cfg.sh \
 	$GITDIR/003-ssh-cfg.sh \
 	$GITDIR/004-ufw-cfg.sh \
+	$GITDIR/999-pause.sh \
 	$GITDIR/101-network-cfg.sh \
 	$GITDIR/102-cifs-cfg.sh \
+	$GITDIR/999-pause.sh \
 "
 
 echo "
@@ -27,7 +29,9 @@ if [ -n "$respType" ]; then
 		echo "# Processing setup-builder"
 		sh -c "$(curl $GITBASIC \
 			$GITDIR/201-java-cfg.sh \
+        	$GITDIR/999-pause.sh \
 			$GITDIR/301-gradle-cfg.sh \
+        	$GITDIR/999-pause.sh \
 			$GITDIR/602-github-ssh-cfg.sh \
 		)"
 		;;
@@ -36,6 +40,7 @@ if [ -n "$respType" ]; then
 		echo "# Processing setup-tomcat"
 		sh -c "$(curl $GITBASIC \
 			$GITDIR/201-java-cfg.sh \
+        	$GITDIR/999-pause.sh \
 			$GITDIR/301-gradle-cfg.sh \
 			$GITDIR/302-tomcat-cfg.sh \
 		)"
@@ -45,8 +50,10 @@ if [ -n "$respType" ]; then
 		echo "# Processing setup-biznuvo"
 		sh -c "$(curl $GITBASIC \
 			$GITDIR/201-java-cfg.sh \
+        	$GITDIR/999-pause.sh \
 			$GITDIR/301-gradle-cfg.sh \
 			$GITDIR/302-tomcat-cfg.sh \
+        	$GITDIR/999-pause.sh \
 			$GITDIR/601-ssl-tomcat-cfg.sh \
 			$GITDIR/701-prepare-biznuvo.sh \
 		)"

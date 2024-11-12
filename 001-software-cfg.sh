@@ -1,8 +1,8 @@
 printf "\n#### BEGIN Software Config\n\n\n"
 
-apt-get -qq update
-apt-get -qq upgrade
-apt-get -qq install unzip
+apt-get -y -qq update
+apt-get -y -qq upgrade
+apt-get -y -qq install unzip
 
 sed -i 's#/usr/games:/usr/local/games:##' /etc/environment
 

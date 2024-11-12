@@ -26,7 +26,7 @@ if [ -n "$respDest" ]; then
     printf "#- setup fstab\n"
 
     sed -i.bak '/\/mnt\/shared/d' /etc/fstab
-    printf "%s /mnt/shared cifs credentials=/etc/cifs-creds/shared,uid=%s,gid=%s 0 0\n" $respDest $(id -u bn) $(id -g bn) >> /etc/fstab
+    printf "%s /mnt/shared cifs credentials=/etc/cifs-creds/shared,uid=%s,gid=%s 0 0\n" $respDest "$(id -u bn)" "$(id -g bn)" >> /etc/fstab
 
     touch /tmp/doreboot
 fi

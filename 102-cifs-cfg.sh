@@ -18,7 +18,7 @@ if [ -n "$respDest" ]; then
 
     printf "#- setup creds\n"
 
-    mkdir /etc/cifs-creds
+    mkdir -p /etc/cifs-creds
     chmod 700 /etc/cifs-creds
 
     printf "username=%s\npassword=%s\n" $respUsername $respPassword >> /etc/cifs-creds/shared

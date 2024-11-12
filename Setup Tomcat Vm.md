@@ -67,7 +67,7 @@
   ```bash
   sudo sed -i 's/#MulticastDNS=no/MulticastDNS=yes/' /etc/systemd/resolved.conf
 
-  sudo mkdir /etc/systemd/network/$(ls /run/systemd/network).d
+  sudo mkdir -p /etc/systemd/network/$(ls /run/systemd/network).d
   printf "[Network]\nMulticastDNS=yes\n" | sudo tee /etc/systemd/network/$(ls /run/systemd/network).d/override.conf
 
   sudo resolvectl mdns eth0 yes

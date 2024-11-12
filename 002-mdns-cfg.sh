@@ -6,7 +6,7 @@ sed -i 's/#MulticastDNS=no/MulticastDNS=yes/' /etc/systemd/resolved.conf
 
 printf "#- setup network.d\n"
 
-mkdir /etc/systemd/network/$(ls /run/systemd/network).d
+mkdir -p /etc/systemd/network/$(ls /run/systemd/network).d
 printf "[Network]\nMulticastDNS=yes\n" > /etc/systemd/network/$(ls /run/systemd/network).d/override.conf
 
 printf "#- resolvectl mdns\n"

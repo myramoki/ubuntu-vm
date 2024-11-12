@@ -48,6 +48,7 @@ if [ -n "$respType" ]; then
 			$GITDIR/301-gradle-cfg.sh \
 			$GITDIR/302-tomcat-cfg.sh \
 			$GITDIR/601-ssl-tomcat-cfg.sh \
+			$GITDIR/701-prepare-biznuvo.sh \
 		)"
 		;;
 

@@ -1,6 +1,6 @@
 # https://phoenixnap.com/kb/linux-mount-cifs
 
-printf "\n#### BEGIN CIFS Config\n\n\n"
+printf "\n#### BEGIN CIFS Config\n\n"
 
 read -p "?? Add Windows share path [return for nothing] " respDest
 

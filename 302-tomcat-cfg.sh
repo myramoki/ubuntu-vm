@@ -1,6 +1,6 @@
 # Setup tomcat with basic stuff
 
-printf "\n#### BEGIN Tomcat Config\n\n\n"
+printf "\n#### BEGIN Tomcat Config\n\n"
 
 DEFAULT_TOMCAT_VERSION=9.0.96
 

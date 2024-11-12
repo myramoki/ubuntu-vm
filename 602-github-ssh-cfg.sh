@@ -1,4 +1,4 @@
-printf "\n#### BEGIN Github SSH Keys config\n\n\n"
+printf "\n#### BEGIN Github SSH Keys config\n\n"
 
 echo "[core]
     autocrlf = false

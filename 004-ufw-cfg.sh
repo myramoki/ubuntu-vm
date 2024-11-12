@@ -1,4 +1,4 @@
-printf "\n#### BEGIN UFW Config\n\n\n"
+printf "\n#### BEGIN UFW Config\n\n"
 
 ufw default deny incoming
 ufw default allow outgoing

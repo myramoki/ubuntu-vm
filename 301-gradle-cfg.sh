@@ -1,4 +1,4 @@
-printf "\n#### BEGIN Gradle Config\n\n\n"
+printf "\n#### BEGIN Gradle Config\n\n"
 
 DEFAULT_GRADLE_VERSION=8.10.2
 

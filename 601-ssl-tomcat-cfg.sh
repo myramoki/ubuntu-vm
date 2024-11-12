@@ -1,4 +1,4 @@
-printf "\n#### BEGIN Tomcat SSL Config\n\n\n"
+printf "\n#### BEGIN Tomcat SSL Config\n\n"
 
 printf "#- fetch JKS\n"
 

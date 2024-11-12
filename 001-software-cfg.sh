@@ -1,4 +1,4 @@
-printf "\n#### BEGIN Software Config\n\n\n"
+printf "\n#### BEGIN Software Config\n\n"
 
 apt-get -y -qq update
 apt-get -y -qq upgrade

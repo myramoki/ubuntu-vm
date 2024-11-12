@@ -1,6 +1,6 @@
 # ref https://askubuntu.com/questions/1064921/scripting-netplan-for-static-ip-address
 
-printf "\n#### BEGIN Network Config\n\n\n"
+printf "\n#### BEGIN Network Config\n\n"
 
 currentHostname=$(hostname)
 

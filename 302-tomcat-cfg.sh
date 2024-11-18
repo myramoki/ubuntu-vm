@@ -83,6 +83,8 @@ systemctl enable tomcat
 systemctl start tomcat
 
 echo "alias tm='sudo -u tomcat'
-alias tmb='sudo -u tomcat bash'" | sudo -u bn 'cat >> ~/.bash_aliases'
+alias tmb='sudo -u tomcat bash'" >/tmp/302-upd
+
+sudo -u bn sh -c 'touch ~/.bash_aliases; cat /tmp/302-upd >> ~/.bash_aliases'
 
 printf "\n#### FINISHED Tomcat Config\n\n"

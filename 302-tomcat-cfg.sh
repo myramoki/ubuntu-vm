@@ -82,4 +82,7 @@ systemctl daemon-reload
 systemctl enable tomcat
 systemctl start tomcat
 
+echo "alias tm='sudo -u tomcat'
+alias tmb='sudo -u tomcat bash'" | sudo -u bn 'cat >> ~/.bash_aliases'
+
 printf "\n#### FINISHED Tomcat Config\n\n"
